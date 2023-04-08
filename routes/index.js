@@ -1,7 +1,10 @@
 const router = require('express').Router()
-const workoutRoute = require('./workoutRoutes') //IMPORTING people route methods
+const { workoutCtrl } = require('../controllers') //all of our methods instide of controllers/index.js
 
-//URL DIRECTORY 
-router.use('/workout', workoutRoute)
+//ROUTES - METHODS //
+router.get('/', workoutCtrl.getWorkout)
+router.post('/', workoutCtrl.createWorkout)
+router.put("/:id", workoutCtrl.updateWorkout)
+router.delete('/:id', workoutCtrl.deleteWorkout)
 
-module.exports = router
+module.exports = router 
