@@ -1,24 +1,18 @@
-///////////////////////////////
-// DEPENDENCIES
-////////////////////////////////
-// get .env variables
+//======== DEPENDENCIES=============
 require("dotenv").config();
-// pull PORT from .env, give default value of 3000
 const { PORT } = process.env;
-// import express
 const express = require("express");
-// create application object
 const app = express();
+const routes = require('./routes/index')
+const cors = require('cors')
 
-///////////////////////////////
-// ROUTES
-////////////////////////////////
-// create a test route
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
 
-///////////////////////////////
-// LISTENER
-////////////////////////////////
+//======== ROUTES ==============
+app.use("/", routes);
+
+app.use((req,res) => {
+    res.status(404).json({message: "NOT A PROPER ROUTE"})
+})
+
+//======== LISTENER =============
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
