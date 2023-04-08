@@ -13,7 +13,6 @@ const getWorkout = (req, res) => {
 }
 
 const createWorkout = (req, res) => {
-    // res.send("this is create workout")
     db.Workout.create(req.body)
     .then((createdWorkout) => {
         if(!createdWorkout){
