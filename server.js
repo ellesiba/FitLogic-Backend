@@ -22,3 +22,5 @@ app.get("/", (req, res) => {
 // LISTENER
 ////////////////////////////////
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+
+console.log('Mateo\'s merge successful')
