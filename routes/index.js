@@ -1,10 +1,6 @@
 const router = require('express').Router()
-const { workoutCtrl } = require('../controllers') //all of our methods instide of controllers/index.js
+const workoutRoute = require('./workoutRoutes') 
 
-//ROUTES - METHODS //
-router.get('/', workoutCtrl.getWorkout)
-router.post('/', workoutCtrl.createWorkout)
-router.put("/:id", workoutCtrl.updateWorkout)
-router.delete('/:id', workoutCtrl.deleteWorkout)
+router.use('/workout', workoutRoute)
 
-module.exports = router 
+module.exports = router
