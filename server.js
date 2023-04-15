@@ -5,6 +5,18 @@ const express = require("express");
 const app = express();
 const routes = require('./routes/index')
 const cors = require('cors')
+const session = require('express-session')
+
+//============= SESSIONS ==================
+
+const SESSION_SECRET = process.env.SESSION_SECRET
+console.log('Here is the session secret')
+console.log(SESSION_SECRET)
+app.use(session({
+	secret: SESSION_SECRET, 
+	resave: false, 
+	saveUninitialized: false 
+}))
 
 // ======== MiddleWare ===============
 app.use(cors()); 
