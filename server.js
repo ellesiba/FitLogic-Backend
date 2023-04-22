@@ -41,10 +41,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-
 app.use(cors());
 app.use(bodyParser.json());
-
 
 mongoose.connect('mongodb+srv://Group1:BestGroupGroup1BestTeam123GoGO@fitlogic.cbuhs8w.mongodb.net/yourDatabaseName?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -52,16 +50,15 @@ mongoose.connect('mongodb+srv://Group1:BestGroupGroup1BestTeam123GoGO@fitlogic.c
   useFindAndModify: false,
 });
 
-
 const WorkoutSchema = new mongoose.Schema({
-  name: String,
   workout: String,
-  reps: Number,
+  sets: String,
+  reps: String,
+  category: String,
   youtubeVideo: String,
 });
 
 const Workout = mongoose.model('Workout', WorkoutSchema);
-
 
 app.get('/workouts', async (req, res) => {
   const workouts = await Workout.find();
