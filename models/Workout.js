@@ -1,9 +1,11 @@
 const mongoose = require = require("mongoose")
 
 const WorkoutSchema = {
-      name: {type: String, require: true},
-      description: {type: String, require: true},
-      repetition: {type: Number, required: true}
+      Name: {type: String, require: true},
+      Description: {type: String, require: true},
+      PrimaryMuscles: {type: String},
+      SecondaryMuscles :{type: String},
+      Youtube:{type: String }
   };
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
